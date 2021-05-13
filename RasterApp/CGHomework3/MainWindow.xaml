@@ -1,0 +1,114 @@
+﻿<Window x:Class="CGHomework3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CGHomework3"
+        mc:Ignorable="d"
+        Title="Paint" Height="500" Width="1100" MinHeight="500" MinWidth="1100"> 
+
+    <DockPanel Loaded="DockPanel_Loaded">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Name="btnReset" Click="btnReset_Click" Header="_Reset"  />
+                <MenuItem  Header="_Upload" />
+                <MenuItem  Name="btnSave"  Header="_Save"  />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                
+                <GroupBox Margin="5" >
+                    <GroupBox.Header>
+
+                        <TextBlock FontWeight="Bold">Shape</TextBlock>
+
+                    </GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnLine" FontWeight="Bold" Margin ="5" Width="50px" Click="btnLine_Click">Line</Button>
+                        <Button Name="btnCircle" FontWeight="Bold" Margin ="5" Width="50px" Click="btnCircle_Click">Circle</Button>
+                        <Button Name="btnPolygon" FontWeight="Bold" Margin ="5" Width="50px" Click="btnPolygon_Click">Polygon</Button>
+                    </StackPanel>
+
+                </GroupBox>
+                <GroupBox Margin="5" >
+                    <GroupBox.Header>
+
+                        <TextBlock FontWeight="Bold">Thickness</TextBlock>
+
+                    </GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Brush</Label>
+                        <TextBox Name="txtBrush" Width="25" Margin="5,5,5,10" Text="1" HorizontalContentAlignment="Center"></TextBox>
+                    </StackPanel>
+
+                </GroupBox>
+                <GroupBox Margin="5" >
+                    <GroupBox.Header>
+
+                        <TextBlock FontWeight="Bold">Anti-Aliasing</TextBlock>
+
+                    </GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Name="btnYesAntiAliasing" FontWeight="Bold" Margin ="5" >Yes</RadioButton>
+                        <RadioButton Name="btnNoAntiAliasing" FontWeight="Bold" Margin ="5" IsChecked="True">No</RadioButton>
+
+                    </StackPanel>
+
+                </GroupBox>
+                <GroupBox Margin="5" >
+                    <GroupBox.Header>
+
+                        <TextBlock FontWeight="Bold">Color</TextBlock>
+
+                    </GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Label>Red</Label>
+                        <TextBox Name="txtRed" Width="25" Margin="5,5,5,10" Text="255" HorizontalContentAlignment="Center"></TextBox>
+                        <Label>Green</Label>
+                        <TextBox Name="txtGreen" Width="25" Margin="5,5,5,10" Text="255"  HorizontalContentAlignment="Center"></TextBox>
+                        <Label>Blue</Label>
+                        <TextBox  Name="txtBlue"  Width="25" Margin="5,5,5,10" Text="255" HorizontalContentAlignment="Center"></TextBox>
+                    </StackPanel>
+
+                </GroupBox>
+                <GroupBox Margin="5" >
+                    <GroupBox.Header>
+
+                        <TextBlock FontWeight="Bold">Mode</TextBlock>
+
+                    </GroupBox.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Name="btnDraw" FontWeight="Bold" Margin ="5" Width="50" Checked="btnDraw_Click" IsChecked="True">Draw</RadioButton>
+                        <RadioButton Name="btnEdit" FontWeight="Bold" Margin ="5" Width="50" Checked="btnEdit_Click">Edit</RadioButton>
+                        <RadioButton Name="btnDelete" FontWeight="Bold" Margin ="5" Width="60" Checked="btnDelete_Click">Delete</RadioButton>
+                        
+                        <RadioButton Name="btnMove" FontWeight="Bold" Margin="5" Width="50" >Move Poly</RadioButton>
+                        <RadioButton Name="btnRadius" FontWeight="Bold" Margin="5" Width="105" >Change Radius</RadioButton>
+                        <RadioButton Name="btnSaveShape"  FontWeight="Bold" Margin="5" Width="50" >Save</RadioButton>
+
+
+                    </StackPanel>
+
+                </GroupBox>
+            </StackPanel>
+            <Grid Name="imageGrid" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image Grid.Row="0" Name="mainImage" Stretch="None" MouseDown="mainImage_MouseDown" MouseUp="mainImage_MouseUp" MouseMove="mainImage_MouseMove">
+                    <Image.LayoutTransform>
+                        <ScaleTransform ScaleY="-1"/>
+                    </Image.LayoutTransform>
+                </Image>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>
